@@ -1,22 +1,19 @@
 pipeline {
     agent any 
-    tools {
-        maven "Apache Maven 3.6.1"
-    }
     stages {
         stage('--Clean--') { 
             steps {
-                sh "mvn clean -f my-app"
+                sh "mvn clean"
             }
         }
         stage('--Test--') { 
             steps {
-                sh "mvn test -f my-app"
+                sh "mvn test"
             }
         }
         stage('--Deploy--') { 
             steps {
-                sh "mvn package -f my-app"
+                sh "mvn package"
             }
         }
     }
