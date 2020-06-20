@@ -4,19 +4,17 @@ pipeline {
         maven "Apache Maven 3.6.1"
     }
     stages {
-        stage('Clone repo an clean it') { 
+        stage('--Clean--') { 
             steps {
-                sh "rm -rf my-app"
-                sh "git clone https://github.com/ChrislainGba/my-app.git"
                 sh "mvn clean -f my-app"
             }
         }
-        stage('Test') { 
+        stage('--Test--') { 
             steps {
                 sh "mvn test -f my-app"
             }
         }
-        stage('Deploy') { 
+        stage('--Deploy--') { 
             steps {
                 sh "mvn package -f my-app"
             }
